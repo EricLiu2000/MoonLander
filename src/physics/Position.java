@@ -37,5 +37,10 @@ public class Position
 	{
 		this.y = y;
 	}
+	
+	public void counterclockwiseRotate()
+	{
+		
+	}
 
 }
