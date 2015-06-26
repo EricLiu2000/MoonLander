@@ -27,9 +27,6 @@ public class Vector
 	
 	public void rotateCounterclockwise()
 	{
-		if(/*SOME KEY PRESSED*/true)
-		{	
-			
 			//tests to see if it is upper quadrant
 			if(this.y <= 0 && Math.abs(this.x) <= -this.y)
 			{
@@ -53,15 +50,11 @@ public class Vector
 			{
 				this.y = this.y + ROTATE_CONSTANT;
 			}
-		}
 			
 	}
 	
 	public void rotateClockwise()
 	{
-		if(/*SOME KEY PRESSED*/true)
-		{	
-			
 			//tests to see if it is upper quadrant
 			if(this.y <= 0 && Math.abs(this.x) <= -this.y)
 			{
@@ -85,8 +78,7 @@ public class Vector
 			{
 				this.y = this.y - ROTATE_CONSTANT;
 			}
-			
-		}
+
 	}
 	
 	public Vector getVector()
