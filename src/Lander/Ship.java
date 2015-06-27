@@ -1,6 +1,8 @@
 package lander;
 
-import physics.*;
+import keyboard.KeyboardListener;
+import physics.Position;
+import physics.Vector;
 
 public class Ship
 {
@@ -10,6 +12,8 @@ public class Ship
 
 	private Position pos;
 	private Vector vec;
+    private double width;
+    private double height;
     private int fuel;
 
 	
@@ -29,7 +33,7 @@ public class Ship
 	{
 		return this;
 	}
-	
+
 	public void update()
 	{
         if(this.pos.getX() > RIGHT_BOUNDS)
@@ -47,17 +51,17 @@ public class Ship
             {
                 pos.move(0, GRAVITY);
 
-                if(/*RIGHT KEY PRESSED*/true)
+                if(KeyboardListener.isKeyPressed('d'))
                 {
                     vec.rotateClockwise();
                 }
 
-                if(/*LEFT KEY PRESSED*/true)
+                if(KeyboardListener.isKeyPressed('a'))
                 {
                     vec.rotateCounterclockwise();
                 }
 
-                if(/*FORWARD KEY PRESSED*/true)
+                if(KeyboardListener.isKeyPressed('w'))
                 {
                     this.pos.move(this.vec);
                     fuel -= 1;
