@@ -63,6 +63,9 @@ public class Ship
 
                 if(KeyboardListener.isKeyPressed('w'))
                 {
+                    this.vec.move(this.vec.getX()/(Math.sqrt((this.vec.getX() * this.vec.getX()) + (this.vec.getY() * this.vec.getY()))),
+                            this.vec.getY()/(Math.sqrt((this.vec.getX() * this.vec.getX()) + (this.vec.getY() * this.vec.getY()))));
+
                     this.pos.move(this.vec);
                     fuel -= 1;
                 }
