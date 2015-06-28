@@ -3,12 +3,10 @@ package lander;
 import keyboard.KeyboardListener;
 import physics.Position;
 import physics.Vector;
+import constants.*;
 
 public class Ship
 {
-    public static double RIGHT_BOUNDS = 500;
-    public static double LEFT_BOUNDS = 0;
-    public static double GRAVITY = 1;
 
 	private Position pos;
 	private Vector vec;
@@ -34,22 +32,28 @@ public class Ship
 		return this;
 	}
 
+    public double getFuel()
+    {
+        return this.fuel;
+    }
+
 	public void update()
 	{
-        if(this.pos.getX() > RIGHT_BOUNDS)
+
+        if(this.pos.getX() > Constants.RIGHT_BOUNDS)
         {
-            this.pos.setX(LEFT_BOUNDS + 0.25);
+            this.pos.setX(Constants.LEFT_BOUNDS + 0.25);
         }
 
-        if(this.pos.getX() < LEFT_BOUNDS)
+        if(this.pos.getX() < Constants.LEFT_BOUNDS)
         {
-            this.pos.setX(RIGHT_BOUNDS - 0.25);
+            this.pos.setX(Constants.RIGHT_BOUNDS - 0.25);
         }
         if(/*SHIP NOT TOUCH GROUND*/true)
         {
             if(fuel > 0)
             {
-                pos.move(0, GRAVITY);
+                pos.move(0, Constants.GRAVITY);
 
                 if(KeyboardListener.isKeyPressed('d'))
                 {
@@ -71,7 +75,7 @@ public class Ship
                 }
 
             }
-            else pos.move(0, GRAVITY);
+            else pos.move(0, Constants.GRAVITY);
         }
 
         else/*GAME OVER*/;
