@@ -10,4 +10,5 @@ public class Constants
     public static double GRAVITY = 1;
     public static double WORLD_HEIGHT = 1000;
     public static double ROTATE_CONSTANT = 0.5;
+    public static double ACCEPTABLE_LANDING_SPEED = 1;
 }
