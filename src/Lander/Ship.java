@@ -1,9 +1,13 @@
 package lander;
 
+import constants.Constants;
 import keyboard.KeyboardListener;
 import physics.Position;
 import physics.Vector;
-import constants.*;
+import terrain.Moon;
+
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class Ship
 {
@@ -13,12 +17,14 @@ public class Ship
     private double width;
     private double height;
     private int fuel;
+    private Moon moon;
 
 	
-	public Ship()
+	public Ship(Moon moon)
 	{
 		pos = new Position(200, 200);
 		vec = new Vector(0, 0);
+        this.moon = moon;
 	}
 	
 	public Ship(Position pos, Vector vec)
@@ -49,7 +55,7 @@ public class Ship
         {
             this.pos.setX(Constants.RIGHT_BOUNDS - 0.25);
         }
-        if(/*SHIP NOT TOUCH GROUND*/true)
+        if(collide())
         {
             if(fuel > 0)
             {
@@ -80,5 +86,14 @@ public class Ship
 
         else/*GAME OVER*/;
 
+
 	}
+
+    public boolean collide()
+    {
+        Rectangle2D a = new Rectangle((int) (this.pos.getX() - width/2), (int) (this.pos.getY() + height/2), (int) width, (int) height);
+        this.moon = new Moon();
+        return this.moon.moonPolygon.intersects(a);
+    }
+
 }
