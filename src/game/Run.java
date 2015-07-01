@@ -1,7 +1,7 @@
 package game;
 
-import lander.Ship;
-import terrain.Moon;
+import lander.*;
+import terrain.*;
 
 /**
  *
@@ -13,5 +13,6 @@ public class Run
         Moon moon = new Moon();
         Ship lander = new Ship(moon);
         lander.update();
+
     }
 }

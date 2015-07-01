@@ -34,12 +34,17 @@ public class Moon
                 yValues[i] = platformHeight;
             }
 
-        for(int i = leftPlatformSide + 3; i <= 26; i++)
+        for(int i = leftPlatformSide + 3; i < 26; i++)
             {
                 yValues[i] = (int) (2/3 * Constants.WORLD_HEIGHT * Math.random());
             }
 
         moonPolygon = new Polygon(xValues, yValues, xValues.length);
+    }
+
+    public int getLeftPlatformSide()
+    {
+        return leftPlatformSide;
     }
 
 }
