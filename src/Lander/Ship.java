@@ -39,9 +39,14 @@ public class Ship
 		return this;
 	}
 
-    public double getFuel()
+    public int getFuel()
     {
         return this.fuel;
+    }
+
+    public void setFuel(int newFuel)
+    {
+        this.fuel = newFuel;
     }
 
 	public void update()
@@ -60,7 +65,7 @@ public class Ship
 
             if(!collide())
             {
-                if(fuel > 0)
+                if(this.getFuel() > 0)
                 {
                     pos.move(0, Constants.GRAVITY);
 
@@ -80,7 +85,7 @@ public class Ship
                                 this.vec.getY()/(Math.sqrt((this.vec.getX() * this.vec.getX()) + (this.vec.getY() * this.vec.getY()))));
 
                         this.pos.move(this.vec);
-                        fuel -= 1;
+                        this.setFuel(this.fuel - 1);
                     }
 
                 }
